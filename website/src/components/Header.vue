@@ -7,26 +7,26 @@
                     <span>双人博客</span>
                 </div>
                 <ul class="header-right clear-fix">
-                    <li class="" @click="active(1)">
+                    <li class="header-active" @click="active(1)">
                         <router-link to="/">
                             首页
                             <div></div>
                         </router-link>
                     </li>
                     <li @click="active(2)" class="">
-                        <router-link to="/vitae">
+                        <router-link to="/">
                             我的简历
                             <div></div>
                         </router-link>
                     </li>
                     <li @click="active(3)" class="">
-                        <router-link to="/samplereels">
+                        <router-link to="/">
                             作品集
                             <div></div>
                         </router-link>
                     </li>
                     <li @click="active(4)" class="">
-                        <router-link to="/blog">
+                        <router-link to="/">
                             个人博客
                             <div></div>
                         </router-link>
@@ -43,7 +43,7 @@
     export default {
         data(){
             return{
-                forMo:1
+                // forMo:1
             }
         },
         created(){
@@ -51,14 +51,14 @@
 
         },
         mounted () {
-            console.log(this.forMo++);
-            if(this.forMo!=2){
+            // console.log(this.forMo++);
+            // if(this.forMo!=2){
 
-            }else {
-                console.log('aaaaaaa');
-                var aLi=document.getElementsByClassName('header-right');
-                var arr=aLi[0].childNodes[0].classList.add("header-active");
-            }
+            // }else {
+            //     console.log('aaaaaaa');
+            //     var aLi=document.getElementsByClassName('header-right');
+            //     var arr=aLi[0].childNodes[0].classList.add("header-active");
+            // }
             // var aLi=document.getElementsByClassName('header-right');
             // // var arr=aLi[0].childNodes[0].classList.add("header-active");
             // if(aLi[0].childNodes[1].class=='header-right'||aLi[0].childNodes[2].class=='header-right'||aLi[0].childNodes[3].class=='header-right'){
@@ -76,22 +76,22 @@
         },
         methods:{
              active(index) {
+                 
              //index.classList.add("header-active")
                  var aLi=document.getElementsByClassName('header-right');
-                 // console.log(aLi[0].childNodes[index-1]);
-                 // console.log(index);
                  var arr=aLi[0].childNodes;
+                 arr[0].childNodes[0].classList.remove('header-active');
+                 
                  for(var i=0;i<4;i++){
                      arr[i].classList.remove('header-active');
-                     console.log(arr[i].class);
+
 
                  }
                  setTimeout(function () {
-                     arr[0].childNodes[0].classList.remove('header-active');
+                    //  arr[0].childNodes[0].classList.remove('header-active');
                      aLi[0].childNodes[index-1].classList.add("header-active");
-                     console.log(aLi[0].childNodes[0]);
+
                  },100);
-                 // aLi[0].childNodes[index-1].classList.add("header-active");
         }
         },
         components:{
