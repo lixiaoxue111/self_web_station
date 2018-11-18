@@ -7,23 +7,29 @@
                     <span>双人博客</span>
                 </div>
                 <ul class="header-right clear-fix">
-                    <li>
+                    <li class="" @click="active(1)">
                         <router-link to="/">
                             首页
                             <div></div>
                         </router-link>
                     </li>
-                    <li>
+                    <li @click="active(2)" class="">
                         <router-link to="/vitae">
                             我的简历
                             <div></div>
                         </router-link>
                     </li>
-                    <li>
-                        <router-link to="/samplereels">作品集</router-link>
+                    <li @click="active(3)" class="">
+                        <router-link to="/samplereels">
+                            作品集
+                            <div></div>
+                        </router-link>
                     </li>
-                    <li>
-                        <router-link to="/blog">个人博客</router-link>
+                    <li @click="active(4)" class="">
+                        <router-link to="/blog">
+                            个人博客
+                            <div></div>
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -32,6 +38,68 @@
 
     </div>
 </template>
+<script>
+    //import show from '@/components/show.vue';
+    export default {
+        data(){
+            return{
+                forMo:1
+            }
+        },
+        created(){
+
+
+        },
+        mounted () {
+            console.log(this.forMo++);
+            if(this.forMo!=2){
+
+            }else {
+                console.log('aaaaaaa');
+                var aLi=document.getElementsByClassName('header-right');
+                var arr=aLi[0].childNodes[0].classList.add("header-active");
+            }
+            // var aLi=document.getElementsByClassName('header-right');
+            // // var arr=aLi[0].childNodes[0].classList.add("header-active");
+            // if(aLi[0].childNodes[1].class=='header-right'||aLi[0].childNodes[2].class=='header-right'||aLi[0].childNodes[3].class=='header-right'){
+            //
+            // }
+/*            var aLi=document.getElementsByClassName('header-right li');
+            function active(index) {
+                index.classList.add("header-active")
+            }*/
+            // var aLi=document.getElementsByClassName('header-right li');
+            // aLi.onclick=function () {
+            //     // console.log(event.target);
+            //     console.log('jjjjj')
+            // }
+        },
+        methods:{
+             active(index) {
+             //index.classList.add("header-active")
+                 var aLi=document.getElementsByClassName('header-right');
+                 // console.log(aLi[0].childNodes[index-1]);
+                 // console.log(index);
+                 var arr=aLi[0].childNodes;
+                 for(var i=0;i<4;i++){
+                     arr[i].classList.remove('header-active');
+                     console.log(arr[i].class);
+
+                 }
+                 setTimeout(function () {
+                     arr[0].childNodes[0].classList.remove('header-active');
+                     aLi[0].childNodes[index-1].classList.add("header-active");
+                     console.log(aLi[0].childNodes[0]);
+                 },100);
+                 // aLi[0].childNodes[index-1].classList.add("header-active");
+        }
+        },
+        components:{
+
+        }
+    }
+</script>
+
 <style scoped>
 
     .clear-fix::after{
@@ -95,10 +163,13 @@
         left: 0;
         width: 0;
     }
+    .header-right li.header-active a div{
+        width: 100%;
+    }
     .header-right li a:hover>div{
         display: inline-block;
         width: 100%;
-        background: #aaaaaa;
+        background: #f00;
         -webkit-transition: width .2s linear;
         -moz-transition: width .2s linear;
         -ms-transition: width .2s linear;
