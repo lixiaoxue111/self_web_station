@@ -8,26 +8,26 @@
                 </div>
                 <ul class="header-right clear-fix">
                     <li class="header-active" @click="active(1)">
-                        <router-link to="/">
+                        <router-link to="">
                             首页
                             <div></div>
                         </router-link>
                     </li>
                     <li @click="active(2)" class="">
-                        <router-link to="/">
+                        <router-link to="/vitae">
                             我的简历
                             <div></div>
                         </router-link>
                     </li>
                     <li @click="active(3)" class="">
-                        <router-link to="/">
+                        <router-link to="/samplereels">
                             作品集
                             <div></div>
                         </router-link>
                     </li>
                     <li @click="active(4)" class="">
-                        <router-link to="/">
-                            个人博客
+                        <router-link to="/lskill">
+                            专业技能
                             <div></div>
                         </router-link>
                     </li>
@@ -39,7 +39,6 @@
     </div>
 </template>
 <script>
-    //import show from '@/components/show.vue';
     export default {
         data(){
             return{
@@ -51,28 +50,7 @@
 
         },
         mounted () {
-            // console.log(this.forMo++);
-            // if(this.forMo!=2){
 
-            // }else {
-            //     console.log('aaaaaaa');
-            //     var aLi=document.getElementsByClassName('header-right');
-            //     var arr=aLi[0].childNodes[0].classList.add("header-active");
-            // }
-            // var aLi=document.getElementsByClassName('header-right');
-            // // var arr=aLi[0].childNodes[0].classList.add("header-active");
-            // if(aLi[0].childNodes[1].class=='header-right'||aLi[0].childNodes[2].class=='header-right'||aLi[0].childNodes[3].class=='header-right'){
-            //
-            // }
-/*            var aLi=document.getElementsByClassName('header-right li');
-            function active(index) {
-                index.classList.add("header-active")
-            }*/
-            // var aLi=document.getElementsByClassName('header-right li');
-            // aLi.onclick=function () {
-            //     // console.log(event.target);
-            //     console.log('jjjjj')
-            // }
         },
         methods:{
              active(index) {
@@ -81,11 +59,8 @@
                  var aLi=document.getElementsByClassName('header-right');
                  var arr=aLi[0].childNodes;
                  arr[0].childNodes[0].classList.remove('header-active');
-                 
                  for(var i=0;i<4;i++){
                      arr[i].classList.remove('header-active');
-
-
                  }
                  setTimeout(function () {
                     //  arr[0].childNodes[0].classList.remove('header-active');
