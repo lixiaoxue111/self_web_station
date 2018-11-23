@@ -1,6 +1,6 @@
 <template>
     <div class="ZSam-container">
-        <Header/>
+        <Header :router='header'></Header>
         <div class="bg" id="bg"></div>
         <div class="page-container">
             <div class='page-top'></div>
@@ -143,6 +143,8 @@ Header{
 .ZSam-container{
     width: 100%;
     height:100%;
+    z-index: -1;
+    position: relative;
 }
 .page-container{
     position: absolute;
@@ -150,7 +152,7 @@ Header{
     width: 100%;
     height:130%;
     overflow: hidden;
-    /* background: rgba(25,25,25,.5); */
+    z-index: -1;
 }
 .page-top{
 position: absolute;
@@ -186,6 +188,7 @@ background: #1c1c1c;;
     
 }
 .items-li1{
+    
     width: 350px;
     height: 597px;
         margin-left:20px;
@@ -196,6 +199,7 @@ background: #1c1c1c;;
          -o-transform: skewY(-10deg);
 background: red;
 overflow: hidden;
+z-index: 3;
 }
 .items-li1 .li-header{
     background: url('../assets/img/xybb.png');
@@ -423,7 +427,8 @@ export default {
           p3:'',
           p1to3:'',
           back:'',
-          li:''
+          li:'',
+          header:2
       }
   },mounted() {
       this.ul=document.getElementsByClassName('show-items-ul')[0];
